@@ -137,7 +137,7 @@ class _ContactListState extends State<ContactList> {
                                     child: Column(
                                       children: [
                                         Text(
-                                          " Informações:" +
+                                          " Informações: Verificar se esta tudo funcionando" +
                                               contato.informa.toString(),
                                           style: const TextStyle(
                                               color: Colors.white,
