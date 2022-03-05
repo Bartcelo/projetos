@@ -8,7 +8,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final screen = MediaQuery.of(context).size;
     return Scaffold(
-      body: Container(
+      // ignore: sized_box_for_whitespace
+      body:Container(
         width: screen.width,
         height: screen.height,
         child: Stack(
@@ -53,7 +54,13 @@ class HomePage extends StatelessWidget {
               ),
                bottom: 0,
               left: 0,
-            )
+            ),
+            screen.width < 580 ?
+            // Small screen
+            Container(
+            ):
+            // lage screen
+            Container()
           ],
         ),
       ),
