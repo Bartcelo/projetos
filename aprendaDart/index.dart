@@ -1,26 +1,32 @@
+
+
 void  main() {
-  //var nomeCompleto = "Marcelo gonzaga";
-  //Object nomeCompleto = "Raiane Gonzaga";
-  //String nomeCompleto = "Marcelo e Raiane";
-  //dynamic nomeCompleto = "Raiane e Marcelo";
-  // print(nomeCompleto);
-   
-  // int idade = 12;
-  // print(idade);
-  // String vida = "minha vida";
-   //print(vida);
+ // estudando listas
+List <int> lista = [1,2,3];
+List <int> lista2 = [7,8,9,10,11,12];
 
-   // Numeros
-   // inteiros  doble
+print(lista);
+print("ok1");
+print(lista.remove(2));
+print("ok2");
+lista.add(5);
+print(lista);
+print("ok3");
+lista.clear();
+print(lista);
+print("ok4");
+lista.addAll(lista2);
+print("ok5");
+var elemento = lista.elementAt(1);
+print(elemento);
 
-  // double valor = 10.50;
- //  print(valor);
-
-
- bool valor = true;
-
- print(valor.toString() == "true");
-
+print("ok6");
+print(lista);
+print("ok7");
+var nova = null;
+var listatotal = ["Estidando lista",...lista.reversed, ...lista2, "com dart", ...?nova];
+print(listatotal);
+print("ok8");
 
    
  
