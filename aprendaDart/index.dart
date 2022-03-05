@@ -1,12 +1,42 @@
 
 
 void  main() {
- // estudo de sets com dart
+// estudando Maps
+// var comentarios = {
+//   'java': 'Comentario java',
+//   'dart':'Comentario dart',
+//   'C#': 'Comentario C#'
+// };
+// comentarios.
 
-  Set <String> nomes = {};
+// Map<String, String> comentario = Map<String, String>();
+// comentario['Java'] = 'Comentarios Java';
+// comentario['Dart'] = 'Comentarios Dart';
+// comentario['C#'] = 'Comentarios C#';
 
-  // Ao ler a documentação e entender o que esta aocntecendo por de baixo dos panos 
-  //conseguimos entender o que o SET pode nos ajudar no momento da programação.
+// // comentario.values.forEach((element) { 
+// //   print(element);
+// // });
 
- 
+// comentario.forEach((key, value) { 
+//   print("$key => $value");
+// });
+
+Map<String, List<String>> livros = Map<String, List<String>>();
+
+  livros ["Java"] = ["livro Java 1","livro Java 2","livro Java 3"];
+  livros ["Dart"] = ["livro Dart 1","livro Dart 2","livro Dart 3"];
+  livros ["JavaScript"] = ["livro JavaScript 1","livro JavaScript 2","livro JavaScript 3"];
+
+  print(livros);
+  livros.forEach((key, value) { 
+    print(
+      """
+      $key
+          ${value}
+  """
+    );
+  });
+
+  
   }
