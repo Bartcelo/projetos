@@ -1,7 +1,7 @@
 // ignore: prefer_const_declarations
 final createTable = ''' 
 CREATE TABLE contact(
-  id INT PRIMARY KEY
+  id INTEGER NOT NULL PRIMARY KEY
   ,nome VARCHAR(200) 
   ,telefone CHAR(16) NOT NULL
   ,informa CHAR(500) 
