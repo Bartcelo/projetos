@@ -15,7 +15,7 @@ class ContactList extends StatefulWidget {
 }
 
 class _ContactListState extends State<ContactList> {
-  // double _height = 50;
+   double _height = 50;
 
   final _contactBack = ContactListBack();
   /* 
@@ -130,13 +130,13 @@ class _ContactListState extends State<ContactList> {
                                 ),
                                 GestureDetector(
                                   onTap: () {
-                                    // setState(() {
-                                    //   _height == 50
-                                    //       ? _height =
-                                    //           MediaQuery.of(context).size.height *
-                                    //               0.5
-                                    //       : _height = 50;
-                                    // });
+                                    setState(() {
+                                      _height == 50
+                                          ? _height =
+                                              MediaQuery.of(context).size.height *
+                                                  0.5
+                                          : _height = 50;
+                                    });
                                   },
                                   child: AnimatedContainer(
                                       padding: const EdgeInsets.all(0),
