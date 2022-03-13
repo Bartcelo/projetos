@@ -112,7 +112,7 @@ class _ContactListState extends State<ContactList> {
                                   leading: const Icon(Icons.person),
                                   title: Text(contato.nome.toString()),
                                   // onTap: () {Navigator.of(context).pushNamed(MyApp.FORM);},
-                                  subtitle: Text(contato.id.toString()),
+                                  subtitle: Text(contato.telefone.toString()),
                                   isThreeLine: true,
                                   iconColor: Colors.white,
                                   textColor: Colors.white,
@@ -131,7 +131,7 @@ class _ContactListState extends State<ContactList> {
                                 GestureDetector(
                                   onTap: () {
                                     setState(() {
-                                      _height == 50
+                                      _height == 400
                                           ? _height =
                                               MediaQuery.of(context).size.height *
                                                   0.5

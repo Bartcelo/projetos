@@ -1,9 +1,12 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:get_it/get_it.dart';
 import 'package:teste/app/domin/entities/contact.dart';
 import 'package:teste/app/domin/exepition/domain_layer_exption.dart';
 import 'package:teste/app/domin/interfaces/contact_dao.dart';
 
 class ContactService {
+  // ignore: prefer_final_fields
   var _dao = GetIt.I.get<ContactDAO>();
 
   save(Contact contact) {
@@ -33,10 +36,7 @@ class ContactService {
   }
 
   validainforma(String informa) {
-    if (informa == null) {
-      throw DomainLayerExption(
-          "Deve ser colocado informações sobre o cotato feito.");
-    } else if (informa.length > 500) {
+    if (informa.length > 500) {
       throw DomainLayerExption(
           "As informações devem conter no maximo 500 caracteres.");
     }
@@ -52,9 +52,7 @@ class ContactService {
   }
 
   validadata(int data) {
-    if (data == null) {
-      throw DomainLayerExption("A data é obrigatório.");
-    } else if (data.bitLength != 6) {
+    if (data.bitLength != 6) {
       throw DomainLayerExption(
           "A data deve possuir seis digitos sendo dois para dia dois para mes e dois para ano.");
     }
