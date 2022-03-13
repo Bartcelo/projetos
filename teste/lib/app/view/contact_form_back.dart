@@ -10,12 +10,15 @@ class ContactFormBack = _ContactFormBack with _$ContactFormBack;
 abstract class _ContactFormBack with Store {
   Contact? contact;
   var _service = GetIt.I.get<ContactService>();
+  
 
 bool? _nomeIsValid;
 bool? _dataIsValid;
 bool? _informaIsValid;
 bool? _telefoneIsValid;
 
+
+@action
 bool get isValed => _nomeIsValid! && _dataIsValid!  && _informaIsValid! && _telefoneIsValid!;
 
 
@@ -26,7 +29,7 @@ bool get isValed => _nomeIsValid! && _dataIsValid!  && _informaIsValid! && _tele
   
   
   
-    var parameter = ModalRoute.of(context)?.settings.arguments;
+    var parameter = ModalRoute.of(context)!.settings.arguments;
     var dia = DateTime.now().day;
     contact = ((parameter == null)
         ? Contact(id: 0, data: dia, informa: '', telefone: '', nome: '')
@@ -41,46 +44,46 @@ bool get isValed => _nomeIsValid! && _dataIsValid!  && _informaIsValid! && _tele
 
 
   // Validações
-String validaNome(String name){
+String validaname(String? name){
   try {
-    _service.validaname(name);
+    _service.validaname(name!);
     _nomeIsValid = true;
-    return null!;
+    return "" ;
   } catch (e) {
     _nomeIsValid = false;
-    return e as String;
+    return e.toString();
   }
 }
 
-String validadata(int data){
+int validadata(int? data){
   try {
-    _service.validadata(data);
+    _service.validadata(data!);
     _dataIsValid = true;
-    return null!;
+    return 0 ;
   } catch (e) {
     _dataIsValid = false;
-    return e as String;
+    return e as int;
   }
 }
 
-String validainforma(String informa){
+String validainforma(String? informa){
   try {
-    _service.validainforma(informa);
+    _service.validainforma(informa!);
     _informaIsValid = true;
-    return null!;
+    return "";
   } catch (e) {
     _informaIsValid = false;
-    return e as String;
+    return e.toString();
   }
 }
-String validatelefone(String telefone){
+String validatelefone(String? telefone){
   try {
-    _service.validatelefone(telefone);
+    _service.validatelefone(telefone!);
     _telefoneIsValid = true;
-    return null!;
+    return "";
   } catch (e) {
     _telefoneIsValid = false;
-    return e as String;
+    return e.toString();
   }
 }
 

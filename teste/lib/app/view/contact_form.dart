@@ -13,6 +13,7 @@ class ContactForm extends StatefulWidget {
 
 class _ContactFormState extends State<ContactForm> {
   bool state = false;
+   final _form = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +21,19 @@ class _ContactFormState extends State<ContactForm> {
     var _back = ContactFormBack(context);
 
     return Scaffold(
+      key: _form,
         appBar: AppBar(
           title: const Text('Formulario de cadastro '),
           actions: [
             IconButton(
               onPressed: () {
-                _back.save();
+                // _form.currentState?.validate();
+                _form.currentState?.save();
+                // if(_back.isValed){
+                  _back.save();
+                  Navigator.of(context).pop();
+                // }
+                
               },
               icon: const Icon(Icons.save),
             )
@@ -43,11 +51,13 @@ class _ContactFormState extends State<ContactForm> {
             child: SingleChildScrollView(
               // padding: const EdgeInsets.only(top: 10, right: 5, left: 5),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+               // mainAxisAlignment: MainAxisAlignment.start,
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   TextFormField(
-                    validator: _back.validaNome,
+                    
+                    // validator: _back.validaname,
+                    onSaved: (newValue) => _back.contact?.nome = newValue!,
                     initialValue: _back.contact?.nome,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
@@ -63,6 +73,9 @@ class _ContactFormState extends State<ContactForm> {
                   ),
                   Padding(padding: EdgeInsets.all(8.0)),
                   TextFormField(
+                    
+                    // validator: _back.validatelefone,
+                    onSaved: (newValue) => _back.contact?.telefone = newValue!,
                     initialValue: _back.contact?.telefone,
                     inputFormatters: [mascara],
                     keyboardType: TextInputType.number,
@@ -82,6 +95,9 @@ class _ContactFormState extends State<ContactForm> {
                   ),
                   Padding(padding: EdgeInsets.all(8.0)),
                   TextFormField(
+                    
+                    // validator: _back.validainforma,
+                    onSaved: (newValue) => _back.contact?.informa = newValue!,
                     initialValue: _back.contact?.informa,
                     cursorColor: Colors.white,
                     decoration: InputDecoration(

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:teste/app/domin/entities/contact.dart';
 import 'package:teste/app/my_app.dart';
+import 'package:teste/app/view/contact_form_back.dart';
 import 'package:teste/app/view/contact_list_back.dart';
 
 // ignore: use_key_in_widget_constructors
@@ -18,6 +19,7 @@ class _ContactListState extends State<ContactList> {
    double _height = 50;
 
   final _contactBack = ContactListBack();
+  // ignore: prefer_final_fields
   /* 
   final lista = [
     {'nome':'Marcelo','telefone':'(11) 95339-0695','avatar':'https://cdn.pixabay.com/photo/2013/07/13/10/07/man-156584_960_720.png'},
@@ -69,7 +71,7 @@ class _ContactListState extends State<ContactList> {
           actions: [
             IconButton(
               onPressed: () {
-                Navigator.of(context).pushNamed(MyApp.FORM);
+               _contactBack.goToForm(context);
               },
               icon: const Icon(Icons.add),
             )
