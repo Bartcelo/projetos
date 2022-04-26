@@ -10,10 +10,10 @@ class ContactService {
   var _dao = GetIt.I.get<ContactDAO>();
 
   save(Contact contact) {
-    validaname(contact.nome);
-    validainforma(contact.informa);
-    validadata(contact.data);
-    validatelefone(contact.telefone);
+    // validaname(contact.nome);
+    // validainforma(contact.informa);
+    // validadata(contact.data);
+    // validatelefone(contact.telefone);
     _dao.save(contact);
   }
 

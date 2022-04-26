@@ -10,7 +10,7 @@ class ContactDaoImpl implements ContactDAO {
   Future<List<Contact>> find() async {
     _db = await Connection.get();
     List<Map<String, dynamic>> resultado = await _db!.query('contact');
-    //return resultado.map((e) => Contact.fromMap(e)) as List<Contact>;
+    // return resultado.map((e) => Contact.fromMap(e)) as List<Contact>;
 
     List<Contact> lista = List.generate(resultado.length, (i) {
       var linha = resultado[i];
@@ -42,8 +42,7 @@ class ContactDaoImpl implements ContactDAO {
       _db?.rawInsert(
           sql, [contact.nome, contact.telefone, contact.informa, contact.data]);
     } else {
-      sql =
-          'UPDATE contact SET nome = ?, telefone = ?, informa = ?, data = ?, WHERE id = ?';
+      sql ='UPDATE contact SET nome = ?, telefone = ?, informa = ?, data = ?, WHERE id = ?';
       _db?.rawUpdate(sql, [
         contact.nome,
         contact.telefone,

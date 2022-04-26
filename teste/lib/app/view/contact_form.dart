@@ -27,12 +27,12 @@ class _ContactFormState extends State<ContactForm> {
           actions: [
             IconButton(
               onPressed: () {
-                // _form.currentState?.validate();
+                 _form.currentState?.validate();
                 _form.currentState?.save();
-                // if(_back.isValed){
+                 if(_back.isValed){
                   _back.save();
                   Navigator.of(context).pop();
-                // }
+                }
                 
               },
               icon: const Icon(Icons.save),
