@@ -1,23 +1,24 @@
-import 'package:cadastro_clientes_carlos/models/contato.dart';
+
 import 'package:flutter/material.dart';
 
-import '../database/database_helper.dart';
+
 
 class Alertas extends StatelessWidget {
   const Alertas({ Key? key }) : super(key: key);
+  static const Color corappbar = Color(0xff4f1567);
+  static const Color corfundo = Color(0xffeeccb4);
+  static const Color cortexto = Color(0xff116873);
   
   
 
   @override
   Widget build(BuildContext context) {
-    // DatabaseHelper db = DatabaseHelper();
-    // List<Contato> contatos = <Contato>[];
-
-    // var valorid = contatos.length;
+   
 
     return  AlertDialog(
-            title: const Text(" Nome"),
-            content: const Text("Faltou o nome do contato"),
+      backgroundColor: corappbar,
+            title: const Text(" Nome", style: TextStyle(color: Colors.white),),
+            content: const Text("Faltou o nome do contato",style: TextStyle(color: Colors.white),),
             actions: [
               ElevatedButton(
                   child: const Text("Fechar"),

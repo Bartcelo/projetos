@@ -18,13 +18,13 @@ abstract class _ContactFormBack with Store {
   bool? _informaIsValid;
   bool? _telefoneIsValid;
 
-  bool get isValed =>  _nomeIsValid! && _dataIsValid! && _informaIsValid! && _telefoneIsValid!;
+  bool get isValed =>  true;
 
   _ContactFormBack(BuildContext context) {
     var parameter = ModalRoute.of(context)!.settings.arguments;
     var dia = DateTime.now().day;
     contact = ((parameter == null)
-        ? Contact(id: 0, data: dia, informa: '', telefone: '', nome: '')
+        ? Contact(id: null, data: dia, informa: '', telefone: '', nome: '')
         : parameter) as Contact?;
   }
 
@@ -35,9 +35,9 @@ abstract class _ContactFormBack with Store {
   }
 
   // Validações
-  String validaname(String? name) {
+  String validaname(String name) {
     try {
-      _service.validaname(name!);
+      _service.validaname(name);
       _nomeIsValid = true;
       return "";
     } catch (e) {
@@ -46,9 +46,9 @@ abstract class _ContactFormBack with Store {
     }
   }
 
-  int? validadata(int? data) {
+  int? validadata(int data) {
     try {
-      _service.validadata(data!);
+      _service.validadata(data);
       _dataIsValid = true;
       return 0;
     } catch (e) {
@@ -58,9 +58,9 @@ abstract class _ContactFormBack with Store {
     }
   }
 
-  String validainforma(String? informa) {
+  String validainforma(String informa) {
     try {
-      _service.validainforma(informa!);
+      _service.validainforma(informa);
       _informaIsValid = true;
       return "Gostou da conversa";
     } catch (e) {
@@ -69,9 +69,9 @@ abstract class _ContactFormBack with Store {
     }
   }
 
-  String validatelefone(String? telefone) {
+  String validatelefone(String telefone) {
     try {
-      _service.validatelefone(telefone!);
+      _service.validatelefone(telefone);
       _telefoneIsValid = true;
       return "";
     } catch (e) {

@@ -125,7 +125,7 @@ class _ContactListState extends State<ContactList> {
                                         iconEditButton((){
                                           _contactBack.goToForm(context, contato);
                                         }),
-                                        iconDelete(context, (){_contactBack.remove(contato.id); Navigator.of(context).pop();})
+                                        iconDelete(context, (){_contactBack.remove(contato.id!); Navigator.of(context).pop();})
                                       ],
                                     ),
                                   ),

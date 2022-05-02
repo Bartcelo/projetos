@@ -4,6 +4,8 @@ import 'package:cadastro_clientes_carlos/models/contato.dart';
 import 'package:cadastro_clientes_carlos/view/alertas.dart';
 import 'package:flutter/material.dart';
 import 'package:cadastro_clientes_carlos/database/database_helper.dart';
+import 'package:flutter/services.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class ContatoPage extends StatefulWidget {
   // const ContatoPage({ Key? key }) : super(key: key);
@@ -17,6 +19,11 @@ class ContatoPage extends StatefulWidget {
 }
 
 class _ContatoPageState extends State<ContatoPage> {
+  // mascaras de textfild
+   var mascaratel = MaskTextInputFormatter(mask:'(##) # ####-####');
+
+
+
   static const Color corappbar = Color(0xff4f1567);
   static const Color corfundo = Color(0xffeeccb4);
   static const Color cortexto = Color(0xff116873);
@@ -111,6 +118,8 @@ class _ContatoPageState extends State<ContatoPage> {
                   });
                 }),
             TextField(
+              maxLength: 11,
+               maxLengthEnforcement: MaxLengthEnforcement.enforced,
               controller: _telefonecontrole,
               decoration: const InputDecoration(labelText: "Telefone"),
               onChanged: (text) {
@@ -156,6 +165,8 @@ class _ContatoPageState extends State<ContatoPage> {
               },
             ),
             TextField(
+              maxLength: 5,
+              maxLengthEnforcement: MaxLengthEnforcement.enforced,
               controller: _numerocasacontrole,
               decoration: const InputDecoration(labelText: "N°"),
               onChanged: (text) {
@@ -167,6 +178,8 @@ class _ContatoPageState extends State<ContatoPage> {
               keyboardType: TextInputType.phone,
             ),
             TextField(
+              maxLength: 8,
+              maxLengthEnforcement: MaxLengthEnforcement.enforced,
               controller: _cepcontrole,
               decoration: const InputDecoration(labelText: "CEP"),
               onChanged: (text) {

@@ -146,10 +146,13 @@ class _HomePageState extends State<HomePage> {
               // AlertaDelete();
 
               AlertDialog(
-            title: const Text("Excluir"),
-            content: const Text("Confirma Exclusão?"),
+                backgroundColor: corappbar,
+                
+            title: const Text("Excluir", style: TextStyle(color: Colors.white)),
+            content: const Text("Confirma Exclusão?", style: TextStyle(color: Colors.white),),
             actions: [
               ElevatedButton(
+                
                   child: const Text("SIM"),
                   onPressed: () {
                     setState(() {
