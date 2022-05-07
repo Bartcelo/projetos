@@ -2,6 +2,7 @@
 
 import 'package:cadastro_clientes_carlos/models/contato.dart';
 import 'package:cadastro_clientes_carlos/view/alertas.dart';
+import 'package:cadastro_clientes_carlos/view/color.dart';
 import 'package:flutter/material.dart';
 import 'package:cadastro_clientes_carlos/database/database_helper.dart';
 import 'package:flutter/services.dart';
@@ -24,9 +25,7 @@ class _ContatoPageState extends State<ContatoPage> {
 
 
 
-  static const Color corappbar = Color(0xff4f1567);
-  static const Color corfundo = Color(0xffeeccb4);
-  static const Color cortexto = Color(0xff116873);
+  Cores cor = Cores();
 
   final _nomecontrole = TextEditingController();
   final _telefonecontrole = TextEditingController();
@@ -77,9 +76,9 @@ class _ContatoPageState extends State<ContatoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: corfundo,
+      backgroundColor: cor.corfundo,
       appBar: AppBar(
-        backgroundColor: corappbar,
+        backgroundColor: cor.corappbar,
         title: Text(
             _editacontato?.nome == '' ? "Novo contato" : _editacontato!.nome),
       ),
@@ -93,7 +92,7 @@ class _ContatoPageState extends State<ContatoPage> {
             FocusScope.of(context).requestFocus(_focusNome);
           }
         },
-        backgroundColor: corappbar,
+        backgroundColor: cor.corappbar,
         child: const Icon(Icons.save),
       ),
       body: SingleChildScrollView(
@@ -104,7 +103,7 @@ class _ContatoPageState extends State<ContatoPage> {
               width: 70,
               height: 70,
               decoration:
-                  const BoxDecoration(shape: BoxShape.circle, color: cortexto),
+                  BoxDecoration(shape: BoxShape.circle, color: cor.cortexto),
               child: Image.asset("assets/img/pessoa.png"),
             ),
             TextField(
@@ -200,7 +199,7 @@ class _ContatoPageState extends State<ContatoPage> {
     showDialog(
         context: context,
         builder: (BuildContext context) {
-          return const Alertas();
+          return  Alertas();
         });
   }
 }

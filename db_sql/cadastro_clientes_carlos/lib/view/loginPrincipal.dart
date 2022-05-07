@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
 
+import 'package:cadastro_clientes_carlos/view/color.dart';
 import 'package:flutter/material.dart';
 
 import '../controller/loginControle.dart';
@@ -8,16 +9,14 @@ class LoginPrincipal extends StatelessWidget {
   final LoginControle _controle = LoginControle();
 
   LoginPrincipal({Key? key}) : super(key: key);
-  static const Color corappbar = Color(0xff4f1567);
-  static const Color corfundo = Color(0xffeeccb4);
-  static const Color cortexto = Color(0xff116873);
+  Cores cor = Cores();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: corfundo,
+      backgroundColor: cor.corfundo,
       appBar: AppBar(
-        backgroundColor: corappbar,
+        backgroundColor: cor.corappbar,
         title: const Center(child: Text("Bartcelo")),
       ),
       body: Container(
@@ -58,10 +57,13 @@ class LoginPrincipal extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.all(10),
                 child: TextField(
+                  obscureText: true,
+                  keyboardType: TextInputType.visiblePassword,
                   onChanged:  _controle.setPass,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: "Digite uma senha",
+                    
                   ),
                 ),
               ),
@@ -70,8 +72,8 @@ class LoginPrincipal extends StatelessWidget {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       minimumSize: Size(MediaQuery.of(context).size.width, 60),
-                      textStyle: const TextStyle(color: corappbar),
-                      primary: corappbar),
+                      textStyle: TextStyle(color: cor.corappbar),
+                      primary: cor.corappbar),
                   onPressed: () {
                     _controle.auth().then((value) {
                         if (true) {

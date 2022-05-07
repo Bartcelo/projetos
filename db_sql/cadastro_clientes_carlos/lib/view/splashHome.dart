@@ -1,5 +1,6 @@
-import 'dart:ffi';
 
+
+import 'package:cadastro_clientes_carlos/view/color.dart';
 import 'package:flutter/material.dart';
 
 class SplashHome extends StatefulWidget {
@@ -10,9 +11,7 @@ class SplashHome extends StatefulWidget {
 }
 
 class _SplashHomeState extends State<SplashHome> {
-  static const Color corappbar = Color(0xff4f1567);
-  static const Color corfundo = Color(0xffeeccb4);
-  static const Color cortexto = Color(0xff116873);
+  Cores cor = Cores();
 
   @override
   void initState() {
@@ -23,10 +22,10 @@ class _SplashHomeState extends State<SplashHome> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: corappbar,
-      child: const Center(
+      color: cor.corappbar,
+      child:  Center(
         child: CircularProgressIndicator(
-          color: corfundo,
+          color: cor.corfundo,
         ),
       ),
     );

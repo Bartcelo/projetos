@@ -1,5 +1,6 @@
 import 'package:cadastro_clientes_carlos/database/database_helper.dart';
 import 'package:cadastro_clientes_carlos/models/contato.dart';
+import 'package:cadastro_clientes_carlos/view/color.dart';
 import 'package:cadastro_clientes_carlos/view/contato_page.dart';
 import 'package:flutter/material.dart';
 
@@ -11,9 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  static const Color corappbar = Color(0xff4f1567);
-  static const Color corfundo = Color(0xffeeccb4);
-  static const Color cortexto = Color(0xff116873);
+  Cores cor = Cores();
 
   DatabaseHelper db = DatabaseHelper();
   List<Contato> contatos = <Contato>[];
@@ -52,11 +51,11 @@ class _HomePageState extends State<HomePage> {
           "Cadastros Marlen",
           style: TextStyle(fontSize: 30),
         ),
-        backgroundColor: corappbar,
+        backgroundColor: cor.corappbar,
       ),
-      backgroundColor: corfundo,
+      backgroundColor: cor.corfundo,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: corappbar,
+        backgroundColor: cor.corappbar,
         onPressed: () {
           _exibaContatoPage();
         },
@@ -80,7 +79,7 @@ class _HomePageState extends State<HomePage> {
 
       // ignore: prefer_const_constructors
       child: Card(
-        color: corappbar,
+        color: cor.corappbar,
         child: Padding(
           padding: const EdgeInsets.all(3.0),
           child: Row(
@@ -89,8 +88,8 @@ class _HomePageState extends State<HomePage> {
               Container(
                 width: 70,
                 height: 70,
-                decoration: const BoxDecoration(
-                    shape: BoxShape.circle, color: cortexto),
+                decoration:  BoxDecoration(
+                    shape: BoxShape.circle, color: cor.cortexto),
                 child: Image.asset("assets/img/pessoa.png"),
               ),
               Column(
@@ -98,16 +97,16 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Text(
                     contatos[index].nome,
-                    style: const TextStyle(fontSize: 22, color: corfundo),
+                    style:  TextStyle(fontSize: 22, color: cor.corfundo),
                   ),
                   Text(
                     contatos[index].telefone.toString(),
-                    style: const TextStyle(fontSize: 15, color: corfundo),
+                    style: TextStyle(fontSize: 15, color: cor.corfundo),
                   ),
                 ],
               ),
               IconButton(
-                icon: const Icon(Icons.delete, color: corfundo,),
+                icon:  Icon(Icons.delete, color: cor.corfundo,),
                 onPressed: () {
                   setState(() {
                     _exibeavisodelete(context, contatos[index].id!, index);
@@ -146,7 +145,7 @@ class _HomePageState extends State<HomePage> {
               // AlertaDelete();
 
               AlertDialog(
-                backgroundColor: corappbar,
+                backgroundColor: cor.corappbar,
                 
             title: const Text("Excluir", style: TextStyle(color: Colors.white)),
             content: const Text("Confirma Exclusão?", style: TextStyle(color: Colors.white),),
