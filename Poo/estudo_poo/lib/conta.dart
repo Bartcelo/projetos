@@ -21,8 +21,6 @@ class Conta {
   abrirConta() {
     // se conta corrente CC ganha 50
     // se conta poupança CP ganha 150
-
-
   }
   fecharConta() {
     //para fechar a conta precisa estar com o saldo igual zero
@@ -38,4 +36,7 @@ class Conta {
     // CC mensalidade no valor de 12 reais
     // CP mensalidade no valor de 20 reais
   }
+
+  
+
 }

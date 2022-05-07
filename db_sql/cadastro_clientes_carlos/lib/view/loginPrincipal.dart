@@ -22,70 +22,72 @@ class LoginPrincipal extends StatelessWidget {
       ),
       body: Container(
         padding: const EdgeInsets.all(15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          // ignore: prefer_const_literals_to_create_immutables
-          children: [
-            const Padding(
-              padding: EdgeInsets.all(10),
-              child: Icon(
-                Icons.people,
-                size: 50,
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: TextField(
-                onChanged: _controle.setEmpresa,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "Digite o nome da empresa",
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              const Padding(
+                padding: EdgeInsets.all(10),
+                child: Icon(
+                  Icons.people,
+                  size: 50,
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: TextField(
-                onChanged: _controle.setEmail,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "Digite seu e-mail",
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: TextField(
+                  onChanged: _controle.setEmpresa,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: "Digite o nome da empresa",
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: TextField(
-                onChanged: _controle.setPass,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "Digite uma senha",
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: TextField(
+                  onChanged: _controle.setEmail,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: "Digite seu e-mail",
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    minimumSize: Size(MediaQuery.of(context).size.width, 60),
-                    textStyle: const TextStyle(color: corappbar),
-                    primary: corappbar),
-                onPressed: () {
-                  _controle.auth().then((value) {
-                      if (true) {
-                        Navigator.of(context).pushReplacementNamed('/homePag');
-                      // ignore: dead_code
-                      } else {
-                        Navigator.of(context).pushReplacementNamed('/');
-                      }
-
-                  });
-                },
-                child: const Text('Continuar'),
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: TextField(
+                  onChanged:  _controle.setPass,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: "Digite uma senha",
+                  ),
+                ),
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: Size(MediaQuery.of(context).size.width, 60),
+                      textStyle: const TextStyle(color: corappbar),
+                      primary: corappbar),
+                  onPressed: () {
+                    _controle.auth().then((value) {
+                        if (true) {
+                          Navigator.of(context).pushReplacementNamed('/homePag');
+                        // ignore: dead_code
+                        } else {
+                          Navigator.of(context).pushReplacementNamed('/');
+                        }
+        
+                    });
+                  },
+                  child: const Text('Continuar'),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
