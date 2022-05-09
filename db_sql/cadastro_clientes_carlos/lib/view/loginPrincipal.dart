@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../controller/loginControle.dart';
 
 class LoginPrincipal extends StatelessWidget {
+
   final LoginControle _controle = LoginControle();
 
   LoginPrincipal({Key? key}) : super(key: key);
@@ -77,9 +78,10 @@ class LoginPrincipal extends StatelessWidget {
                   onPressed: () {
                     _controle.auth().then((value) {
                         if (true) {
-                          Navigator.of(context).pushReplacementNamed('/homePag');
-                        // ignore: dead_code
+                          print("Ir para a tela de navigator");
+                          Navigator.of(context).pushReplacementNamed('/navegador');
                         } else {
+                          print("Ir para a tela de splash");
                           Navigator.of(context).pushReplacementNamed('/');
                         }
         

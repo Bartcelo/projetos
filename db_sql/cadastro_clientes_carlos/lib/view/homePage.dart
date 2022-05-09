@@ -46,21 +46,23 @@ class _HomePageState extends State<HomePage> {
     // ignore: prefer_const_constructors
     return Scaffold(
       appBar: AppBar(
+        
         centerTitle: true,
         title: const Text(
-          "Cadastros Marlen",
+          "BartCelo",
           style: TextStyle(fontSize: 30),
         ),
         backgroundColor: cor.corappbar,
       ),
       backgroundColor: cor.corfundo,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: cor.corappbar,
-        onPressed: () {
-          _exibaContatoPage();
-        },
-        child: const Icon(Icons.add),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   backgroundColor: cor.corappbar,
+      //   heroTag: "btn1",
+      //   onPressed: () {
+      //     _exibaContatoPage();
+      //   },
+      //   child: const Icon(Icons.add),
+      // ),
       body: ListView.builder(
         padding: const EdgeInsets.all(10),
         itemCount: contatos.length,

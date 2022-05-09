@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class LoginControle {
-
   String? _email;
   setEmail(String value) => _email = value;
   String? _pass;
@@ -9,6 +8,7 @@ class LoginControle {
   String? _empresa;
   setEmpresa(String value) => _empresa = value;
 
-
-  Future<bool> auth() async => (_email == "Raiane" && _pass == 123);
+  Future<bool> auth() async {
+    return  _email == "a" && _pass == 1;
+  }
 }

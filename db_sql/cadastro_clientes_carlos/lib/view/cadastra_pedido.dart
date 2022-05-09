@@ -8,18 +8,18 @@ import 'package:cadastro_clientes_carlos/database/database_helper.dart';
 import 'package:flutter/services.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class ContatoPage extends StatefulWidget {
+class CadastraPedido extends StatefulWidget {
   // const ContatoPage({ Key? key }) : super(key: key);
 
   final Contato? contato;
   // ignore: use_key_in_widget_constructors
-  const ContatoPage({this.contato});
+  const CadastraPedido({this.contato});
 
   @override
-  State<ContatoPage> createState() => _ContatoPageState();
+  State<CadastraPedido> createState() => _CadastraPedidoState();
 }
 
-class _ContatoPageState extends State<ContatoPage> {
+class _CadastraPedidoState extends State<CadastraPedido> {
   // mascaras de textfild
    var mascaratel = MaskTextInputFormatter(mask:'(##) # ####-####');
 
@@ -87,7 +87,7 @@ class _ContatoPageState extends State<ContatoPage> {
         onPressed: () {
           // ignore: unnecessary_null_comparison
           if (_editacontato!.nome != null && _editacontato!.nome.isNotEmpty) {
-            Navigator.pop(context, _editacontato);
+           // Navigator.pop(context, _editacontato);
           } else {
             _exibeaviso();
             FocusScope.of(context).requestFocus(_focusNome);
@@ -107,21 +107,12 @@ class _ContatoPageState extends State<ContatoPage> {
                   BoxDecoration(shape: BoxShape.circle, color: cor.cortexto),
               child: Image.asset("assets/img/pessoa.png"),
             ),
-            TextField(
-                focusNode: _focusNome,
-                controller: _nomecontrole,
-                decoration: const InputDecoration(labelText: "Nome"),
-                onChanged: (text) {
-                  editado = true;
-                  setState(() {
-                    _editacontato!.nome = text;
-                  });
-                }),
+           
             TextField(
               maxLength: 11,
                maxLengthEnforcement: MaxLengthEnforcement.enforced,
               controller: _telefonecontrole,
-              decoration: const InputDecoration(labelText: "Telefone"),
+              decoration: const InputDecoration(labelText: "Codigo"),
               onChanged: (text) {
                 editado = true;
 
@@ -130,66 +121,25 @@ class _ContatoPageState extends State<ContatoPage> {
               },
               keyboardType: TextInputType.phone,
             ),
+             TextField(
+                focusNode: _focusNome,
+                controller: _nomecontrole,
+                decoration: const InputDecoration(labelText: "Produto"),
+                onChanged: (text) {
+                  editado = true;
+                  setState(() {
+                    _editacontato!.nome = text;
+                  });
+                }),
             TextField(
               controller: _empresacontrole,
-              decoration: const InputDecoration(labelText: "Empresa"),
+              decoration: const InputDecoration(labelText: "Quantidade"),
               onChanged: (text) {
                 editado = true;
                 _editacontato!.empresa = text;
               },
             ),
-            TextField(
-              controller: _emailcontrole,
-              decoration: const InputDecoration(labelText: "Email"),
-              onChanged: (text) {
-                editado = true;
-                _editacontato!.email = text;
-              },
-              keyboardType: TextInputType.emailAddress,
-            ),
-            TextField(
-              controller: _instagramcontrole,
-              decoration: const InputDecoration(labelText: "Instagram"),
-              onChanged: (text) {
-                editado = true;
-                _editacontato!.instagram = text;
-              },
-              keyboardType: TextInputType.emailAddress,
-            ),
-            TextField(
-              controller: _enderecocontrole,
-              decoration: const InputDecoration(labelText: "Endereço"),
-              onChanged: (text) {
-                editado = true;
-                _editacontato!.endereco = text;
-              },
-            ),
-            TextField(
-              maxLength: 5,
-              maxLengthEnforcement: MaxLengthEnforcement.enforced,
-              controller: _numerocasacontrole,
-              decoration: const InputDecoration(labelText: "N°"),
-              onChanged: (text) {
-                editado = true;
-
-                var valor = int.parse(text);
-                _editacontato!.numerocasa = valor;
-              },
-              keyboardType: TextInputType.phone,
-            ),
-            TextField(
-              maxLength: 8,
-              maxLengthEnforcement: MaxLengthEnforcement.enforced,
-              controller: _cepcontrole,
-              decoration: const InputDecoration(labelText: "CEP"),
-              onChanged: (text) {
-                editado = true;
-
-                var valor = int.parse(text);
-                _editacontato!.cep = valor;
-              },
-              keyboardType: TextInputType.phone,
-            ),
+                        
           ],
         ),
       ),

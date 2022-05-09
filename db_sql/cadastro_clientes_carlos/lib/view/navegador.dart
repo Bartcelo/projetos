@@ -1,11 +1,13 @@
 
 
+import 'package:cadastro_clientes_carlos/view/adicionar.dart';
 import 'package:cadastro_clientes_carlos/view/color.dart';
 import 'package:flutter/material.dart';
 
 import 'contato_page.dart';
 import 'homePage.dart';
 import 'loginPrincipal.dart';
+import 'pedidos.dart';
 
 class Navegador extends StatefulWidget {
   const Navegador({Key? key}) : super(key: key);
@@ -45,8 +47,8 @@ class _NavegadorState extends State<Navegador> {
         index: _tela,
         children: [
           HomePage(),
-          ContatoPage(),
-          LoginPrincipal()
+          Adicionar(),
+          Pedidos(),
         ],
       ),
       
