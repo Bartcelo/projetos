@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_estudo_dart/stack.dart';
 import 'package:flutter_estudo_dart/view/home_page.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       
-      home: HomePage(),
+      home: DesafioStack(),
     );
   }
 }

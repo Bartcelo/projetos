@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 void  main() {
 
   final listaname = ["Marcelo", "Raiane", "Joana","Marli", "Filipe", "Odara"];
@@ -22,6 +24,7 @@ void  main() {
 if (camisaBranca && calcaAzul ) {
   print("pode entrar na festa");
   
+// ignore: dead_code
 } else {
   print("Não pode entrar na festa");
 }

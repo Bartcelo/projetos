@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class SplashHome extends StatefulWidget {
-  const SplashHome({Key? key}) : super(key: key);
+class DesafioStack extends StatefulWidget {
+  const DesafioStack({Key? key}) : super(key: key);
 
   @override
-  State<SplashHome> createState() => _SplashHomeState();
+  State<DesafioStack> createState() => _DesafioStackState();
 }
 
-class _SplashHomeState extends State<SplashHome> {
+class _DesafioStackState extends State<DesafioStack> {
   Color corappbar = Color(0xff4f1567);
   Color corfundo = Color(0xffeeccb4);
   Color cortexto = Color(0xff116873);
@@ -17,9 +17,14 @@ class _SplashHomeState extends State<SplashHome> {
 
 @override
   void initState() {
+    // TODO: implement initState
     super.initState();
-    Future.delayed(const Duration(seconds: 5)).then((value) => Navigator.of(context).pushReplacementNamed('/login'));
+    setState(() {
+      isClicked = true;
+    });
   }
+
+
   double turns = 0.0;
   @override
   Widget build(BuildContext context) {
@@ -34,7 +39,7 @@ class _SplashHomeState extends State<SplashHome> {
             onTap: () {
               isClicked = !isClicked;
               if(isClicked ){
-                setState(() => turns -= 1.5);
+                setState(() => turns -= 1);
               }else{
                 setState(() => turns += 2);
               }

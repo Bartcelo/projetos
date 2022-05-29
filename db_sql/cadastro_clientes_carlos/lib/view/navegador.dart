@@ -36,7 +36,7 @@ class _NavegadorState extends State<Navegador> {
         },
 
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home", ),
           BottomNavigationBarItem(icon: Icon(Icons.add),  label: "ADD"),
           BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined),label: "Produtos"),
         ],

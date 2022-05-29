@@ -26,7 +26,13 @@ class _HomePageState extends State<HomePage> {
 
     //Contato b = Contato (id: 02, nome: "Raiane", empresa: "empresa", email: "email", instagram: "instagram", telefone: 123456789, endereco: "endereco", numerocasa: 93, cep: 08507150, img: "img.jpg");
 //db.insertContato(b);
-    _exibeContatos();
+
+
+setState(() {
+  _exibeContatos();
+  
+});
+    
 
     db.getContatos(contatos).then((lista) {
       // print(lista[2].id);
@@ -49,7 +55,7 @@ class _HomePageState extends State<HomePage> {
         
         centerTitle: true,
         title: const Text(
-          "BartCelo",
+          "Raiane",
           style: TextStyle(fontSize: 30),
         ),
         backgroundColor: cor.corappbar,

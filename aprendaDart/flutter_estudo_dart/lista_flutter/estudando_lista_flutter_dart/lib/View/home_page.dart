@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 List<String> listaNome = ["Raiane", "Marcelo", "Marli", "Boaz"];
 
-List<Widget> listaWidget = listaNome.map((nome) => ListTile(title: Text(nome),leading:Icon (Icons.person) ,tileColor: Colors.red[100],)).toList();
+List<Widget> listaWidget = listaNome.map((nome) => ListTile(title: Text(nome),leading:const Icon (Icons.person) ,tileColor: Colors.red[100],)).toList();
 
 
 
@@ -23,6 +23,7 @@ class HomePage extends StatelessWidget {
         title: const Text('Lista em Flutter'),
         centerTitle: true,
       ),
+      // ignore: avoid_unnecessary_containers
       body: Container(
         child: Column(
           children: [...listaWidget],
