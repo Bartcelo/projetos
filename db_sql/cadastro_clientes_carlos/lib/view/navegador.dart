@@ -4,9 +4,8 @@ import 'package:cadastro_clientes_carlos/view/adicionar.dart';
 import 'package:cadastro_clientes_carlos/view/color.dart';
 import 'package:flutter/material.dart';
 
-import 'contato_page.dart';
 import 'homePage.dart';
-import 'loginPrincipal.dart';
+
 import 'pedidos.dart';
 
 class Navegador extends StatefulWidget {
@@ -29,13 +28,15 @@ class _NavegadorState extends State<Navegador> {
         fixedColor: cor.cortexto,
         unselectedItemColor: cor.corfundo,
         currentIndex: _tela,
+        elevation: 30,
         onTap: (botton){
           setState(() {
             _tela =botton;
+            
           });
         },
 
-        items: [
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home", ),
           BottomNavigationBarItem(icon: Icon(Icons.add),  label: "ADD"),
           BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined),label: "Produtos"),
@@ -45,7 +46,7 @@ class _NavegadorState extends State<Navegador> {
 
       body: IndexedStack(
         index: _tela,
-        children: [
+        children: const [
           HomePage(),
           Adicionar(),
           Pedidos(),

@@ -3,6 +3,8 @@
 import 'package:cadastro_clientes_carlos/models/contato.dart';
 import 'package:cadastro_clientes_carlos/view/alertas.dart';
 import 'package:cadastro_clientes_carlos/view/color.dart';
+import 'package:cadastro_clientes_carlos/view/homePage.dart';
+import 'package:cadastro_clientes_carlos/view/navegador.dart';
 import 'package:flutter/material.dart';
 import 'package:cadastro_clientes_carlos/database/database_helper.dart';
 import 'package:flutter/services.dart';
@@ -40,6 +42,7 @@ class _ContatoPageState extends State<ContatoPage> {
   final _focusNome = FocusNode();
   DatabaseHelper db = DatabaseHelper();
   List<Contato> contatos = <Contato>[];
+  
 
   bool editado = false;
   Contato? _editacontato;
@@ -74,7 +77,8 @@ class _ContatoPageState extends State<ContatoPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ) {
+   
     return Scaffold(
       backgroundColor: cor.corfundo,
       appBar: AppBar(
@@ -87,7 +91,21 @@ class _ContatoPageState extends State<ContatoPage> {
         onPressed: () {
           // ignore: unnecessary_null_comparison
           if (_editacontato!.nome != null && _editacontato!.nome.isNotEmpty) {
-            Navigator.pop(context, _editacontato);
+            setState(() {
+              Navigator.of(context)..
+              pop(_editacontato)
+              ..popAndPushNamed('/navegador');
+
+              //Navigator.of(context).restorablePush((context, arguments) =>);
+             // Navigator.restorablePushNamed(context, '/homePag');
+              //Navigator.of(context).pushReplacementNamed('/homePag');
+             //Navigator.pop(context, _editacontato);
+             //Navigator.popAndPushNamed(context, '/homePag');
+              //Navigator.pushNamed(context, '/homePag');
+            
+              
+            });
+            
           } else {
             _exibeaviso();
             FocusScope.of(context).requestFocus(_focusNome);

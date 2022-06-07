@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cadastro_clientes_carlos/database/database_helper.dart';
 import 'package:cadastro_clientes_carlos/models/contato.dart';
 import 'package:cadastro_clientes_carlos/view/color.dart';
@@ -27,12 +29,9 @@ class _HomePageState extends State<HomePage> {
     //Contato b = Contato (id: 02, nome: "Raiane", empresa: "empresa", email: "email", instagram: "instagram", telefone: 123456789, endereco: "endereco", numerocasa: 93, cep: 08507150, img: "img.jpg");
 //db.insertContato(b);
 
-
-setState(() {
-  _exibeContatos();
-  
-});
-    
+    setState(() {
+      _exibeContatos();
+    });
 
     db.getContatos(contatos).then((lista) {
       // print(lista[2].id);
@@ -52,7 +51,6 @@ setState(() {
     // ignore: prefer_const_constructors
     return Scaffold(
       appBar: AppBar(
-        
         centerTitle: true,
         title: const Text(
           "Raiane",
@@ -96,16 +94,21 @@ setState(() {
               Container(
                 width: 70,
                 height: 70,
-                decoration:  BoxDecoration(
-                    shape: BoxShape.circle, color: cor.cortexto),
-                child: Image.asset("assets/img/pessoa.png"),
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: cor.cortexto),
+                    // image: DecorationImage(
+                        // image: contatos[index].img != null
+                        //     ? FileImage(File(contatos[index].img))
+                        //     : AssetImage("assets/img/pessoa.png") as ImageProvider)),
+               child: Image.asset("assets/img/pessoa.png"),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
                     contatos[index].nome,
-                    style:  TextStyle(fontSize: 22, color: cor.corfundo),
+                    style: TextStyle(fontSize: 22, color: cor.corfundo),
                   ),
                   Text(
                     contatos[index].telefone.toString(),
@@ -114,7 +117,10 @@ setState(() {
                 ],
               ),
               IconButton(
-                icon:  Icon(Icons.delete, color: cor.corfundo,),
+                icon: Icon(
+                  Icons.delete,
+                  color: cor.corfundo,
+                ),
                 onPressed: () {
                   setState(() {
                     _exibeavisodelete(context, contatos[index].id!, index);
@@ -153,13 +159,14 @@ setState(() {
               // AlertaDelete();
 
               AlertDialog(
-                backgroundColor: cor.corappbar,
-                
+            backgroundColor: cor.corappbar,
             title: const Text("Excluir", style: TextStyle(color: Colors.white)),
-            content: const Text("Confirma Exclusão?", style: TextStyle(color: Colors.white),),
+            content: const Text(
+              "Confirma Exclusão?",
+              style: TextStyle(color: Colors.white),
+            ),
             actions: [
               ElevatedButton(
-                
                   child: const Text("SIM"),
                   onPressed: () {
                     setState(() {
